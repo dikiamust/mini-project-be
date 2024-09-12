@@ -4,6 +4,23 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+export const myPokemons = async (req: Request, res: Response) => {
+  try {
+    const pokemon = await prisma.pokemon.findMany();
+
+    res.status(200).json({
+      success: true,
+      message: "My Pokémons successfully retrieved",
+      data: pokemon,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
+
 // Function to catch Pokemon with 50% probability
 const catchPokemonFunc = (): boolean => {
   const randomNum = Math.random(); // Generate a random number between 0 and 1
