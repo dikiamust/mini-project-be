@@ -1,6 +1,6 @@
 # Pokemon List
 
-This web application showcases a dynamic list of Pokémon, seamlessly integrated with the PokeAPI, developed using ExpressJS, Prisma, and PostgreSQL.
+This backend application showcases a dynamic list of Pokémon, seamlessly integrated with the PokeAPI, developed using ExpressJS, Prisma, and PostgreSQL.
 
 ## Clone
 
@@ -57,15 +57,15 @@ After running all the commands above , you can access the API at [http://localho
 
 2. **Catch Pokemon**
 
-   - `POST /catch/:pokemonId`
+   - `POST /pokemons/catch/:pokemonId`
 
 3. **Release Pokemon**
 
-   - `PUT /release/:pokemonId`
+   - `PUT /pokemons/release/:pokemonId`
 
 4. **Rename Pokemon**
 
-   - `PUT /rename/:pokemonId`
+   - `PUT /pokemons/rename/:pokemonId`
 
 ## Frontend
 You can find the frontend app here:
