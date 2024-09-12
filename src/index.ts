@@ -4,8 +4,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+
 /* ROUTE IMPORTS */
-import userRoutes from "./routes/userRoutes";
 import pokemonRoutes from "./routes/pokemonRoutes";
 
 /* CONFIGURATIONS */
@@ -20,7 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 /* ROUTES */
-app.use("/users", userRoutes); // http://localhost:8000/users
 app.use("/pokemons", pokemonRoutes); // http://localhost:8000/pokemons
 
 /* SERVER */
