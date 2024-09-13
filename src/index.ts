@@ -24,6 +24,8 @@ app.use("/pokemons", pokemonRoutes); // http://localhost:8000/pokemons
 
 /* SERVER */
 const port = Number(process.env.PORT) || 8000;
+const environment = process.env.NODE_ENV;
 app.listen(port, "0.0.0.0", () => {
+  console.log(`Environment: ${environment}`);
   console.log(`Server running on port ${port}`);
 });

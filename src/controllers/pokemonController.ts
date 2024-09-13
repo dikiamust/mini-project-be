@@ -1,6 +1,11 @@
 import { Request, Response } from "express";
-import axios from "axios";
 import { PrismaClient } from "@prisma/client";
+import {
+  catchPokemonFunc,
+  getPokemonData,
+  isPrimeNumFunc,
+  fibonacciFunc,
+} from "../utils";
 
 const prisma = new PrismaClient();
 
@@ -18,23 +23,6 @@ export const myPokemons = async (req: Request, res: Response) => {
       success: false,
       message: "Internal server error",
     });
-  }
-};
-
-// Function to catch Pokemon with 50% probability
-const catchPokemonFunc = (): boolean => {
-  const randomNum = Math.random(); // Generate a random number between 0 and 1
-  return randomNum < 0.5; // If less than 0.5, successful catch
-};
-
-// Function to retrieve Pokemon data from PokeAPI
-const getPokemonData = async (pokemonId: number) => {
-  const pokeApiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
-  try {
-    const response = await axios.get(pokeApiUrl);
-    return response.data;
-  } catch (error) {
-    throw new Error("Failed to retrieve Pokémon data");
   }
 };
 
@@ -79,16 +67,6 @@ export const catchPokemon = async (req: Request, res: Response) => {
   }
 };
 
-// Function to check whether a number is prime
-const isPrimeNumFunc = (num: number): boolean => {
-  if (num <= 1) return false;
-  if (num === 2) return true;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) return false;
-  }
-  return true;
-};
-
 export const releasePokemon = async (req: Request, res: Response) => {
   const pokemonId = parseInt(req.params.pokemonId);
 
@@ -113,12 +91,6 @@ export const releasePokemon = async (req: Request, res: Response) => {
       primeNumber: randomNum,
     });
   }
-};
-
-// Function to calculate Fibonacci values
-const fibonacciFunc = (n: number): number => {
-  if (n <= 1) return n;
-  return fibonacciFunc(n - 1) + fibonacciFunc(n - 2);
 };
 
 export const renamePokemon = async (req: Request, res: Response) => {

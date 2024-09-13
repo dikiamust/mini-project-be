@@ -45,6 +45,9 @@ $ yarn dev
 # production mode
 $ yarn start
 
+# Docker Compose
+$ docker compose up --build
+
 ```
 
 ## API Documentation
